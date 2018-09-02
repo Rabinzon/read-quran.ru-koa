@@ -1,0 +1,19 @@
+extends /layouts/application.pug
+
+include /mixins/pagination.pug
+
+block content
+  .row.justify-content-md-center
+    .col-md-8.col-sm-12
+      .my-3
+        h1.mb-0: small=surah.id + '. «' + surah.name + '»'
+        small: i хронолоческий порядок суры &nbsp;
+          !=surah.chronology
+  .row
+    .col-md-8.col-sm-12.m-auto
+      each ayat in surah.Ayats || []
+        .ayat.d-flex
+          .d-block: .badge.badge-dark=ayat.surah + ':' + ayat.order
+          .p-1(style='font-size: 0.85rem;' id=ayat.order)!=ayat.text
+
+      +pagination(surah)

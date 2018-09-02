@@ -1,0 +1,12 @@
+/node_modules/
+*.log
+dist
+flow-typed
+.tern-port
+*.sqlite
+public/assets
+.bash_history
+.env
+.idea
+tmp/
+*.retry

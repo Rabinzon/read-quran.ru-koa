@@ -1,0 +1,49 @@
+- hosts: all
+
+  pre_tasks:
+    - apt:
+        update_cache: yes
+        name: "{{ item }}"
+      with_items:
+        - python3-pip
+        - nginx
+      become: yes
+
+    - block:
+      - name: generate locale
+        locale_gen:
+          name: en_US.UTF-8
+        tags: [locale]
+
+      - name: set locale
+        become: yes
+        shell: update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8
+        tags: [locale]
+
+      - meta: reset_connection
+    - pip:
+        name: docker
+      become: yes
+
+  roles:
+    - role: geerlingguy.docker
+      become: yes
+
+  tasks:
+
+    - template:
+        src: environment.j2
+        dest: "{{ read_quran_env_file }}"
+      tags: env
+
+    - user:
+        name: "{{ read_quran_run_user }}"
+        groups: docker
+        append: yes
+      become: yes
+
+    - meta: reset_connection
+
+    - name: create docker network
+      docker_network:
+        name: "{{ read_quran_docker_network }}"

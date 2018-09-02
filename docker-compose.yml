@@ -1,0 +1,35 @@
+version: '3.3'
+
+services:
+  app:
+    env_file:
+      - ".env"
+    build:
+      context: services/app
+      dockerfile: Dockerfile.production
+    volumes:
+      - "./services/app:/usr/src/app:rw"
+    command: "make server"
+    ports:
+      - "${READ_QURAN_PORT}:3000"
+    networks:
+      - services
+
+    depends_on:
+      - postgres
+
+  postgres:
+    env_file:
+      - ".env"
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    networks:
+      - services
+
+networks:
+  services:
+    driver: bridge

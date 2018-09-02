@@ -1,0 +1,8 @@
+FROM node:10
+WORKDIR /usr/src/app
+ENV PORT 3000
+COPY package.json /usr/src/app/package.json
+COPY package-lock.json /usr/src/app/package-lock.json
+RUN npm install
+ADD . /usr/src/app
+RUN npm run build

@@ -1,0 +1,65 @@
+
+---
+
+- hosts: webserver
+  gather_facts: no
+  # become: yes
+  # become_user: "{{ app_run_user }}"
+
+  tasks:
+    - template:
+        src: environment.j2
+        dest: "{{ read_quran_env_file }}"
+      tags: env
+
+    - name: download read_quran
+      docker_image:
+        name: "{{ read_quran_docker_image }}"
+        force: yes
+      tags: [app]
+
+    - name: download postgres
+      docker_image:
+        name: postgres
+        force: yes
+      tags: [postgres]
+
+    - name: start postgres
+      docker_container:
+        recreate: yes
+        name: postgres
+        image: postgres
+        state: started
+        restart_policy: always
+        env_file: "{{ read_quran_env_file }}"
+        networks:
+          - name: "{{ read_quran_docker_network }}"
+      tags: [postgres]
+
+    - name: start app
+      docker_container:
+        recreate: yes
+        name: app
+        image: "{{ read_quran_docker_image }}"
+        state: started
+        command: make server
+        restart_policy: always
+        env_file: "{{ read_quran_env_file }}"
+        ports:
+          - "{{ read_quran_port }}:{{ read_quran_port }}"
+        networks:
+          - name: "{{ read_quran_docker_network }}"
+      tags: [app]
+
+
+
+  post_tasks:
+    - name: notify slack
+      local_action:
+          module: slack
+          domain: rabinzon.slack.com
+          token: "{{ slack_token }}"
+          msg: "read-quran.ru deploy completed 🚀"
+          channel: "#operation"
+          username: "{{ ansible_ssh_user }}"
+      run_once: true

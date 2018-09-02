@@ -1,0 +1,4 @@
+FROM node:10
+COPY package.json /usr/src/app/package.json
+ENV PORT 3000
+WORKDIR /usr/src/app

@@ -1,0 +1,5 @@
+ansible_python_interpreter: "/usr/bin/env python3"
+read_quran_env_file: "{{ read_quran_run_user_home }}/.env"
+read_quran_port: 3000
+node_env: production
+read_quran_run_user_home: /home/admin/

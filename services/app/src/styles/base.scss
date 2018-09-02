@@ -1,0 +1,54 @@
+@import '~bootstrap/scss/bootstrap';
+@import "variables";
+
+body {
+    min-height: 100vh;
+    background: url(http://read-quran.ru/images/debut_light.png);
+    position: relative;
+}
+
+.navbar {
+    background: rgba(#f8f9fa, 0.7);
+}
+
+.list {
+    column-gap: 49px;
+    column-width: 198px;
+}
+
+ul.list  {
+    column-width: 350px;
+    list-style: none;
+}
+
+.nav-wrapper {
+    height: 57px;
+}
+
+.selected {
+    margin: 0;
+    padding: 5px 0;
+    position: relative;
+}
+.selected:before {
+    content: '';
+    position: absolute;
+    left: -45px;
+    right: -5px;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    border-radius: 3px;
+    background: rgba(9, 9, 9, 0.13);
+}
+
+.mobile-nav {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100vh;
+    overflow: scroll;
+    background: #fff;
+    z-index: 9999;
+}

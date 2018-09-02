@@ -1,0 +1,18 @@
+extends /layouts/application.pug
+
+block content
+  .row.justify-content-md-center
+    .col-md-8.col-sm-12
+      .text-center.my-5
+        h1 Священный Коран
+        p.lead.mb-0 в хронологическом порядке
+        small На данный момент доступен только перевод И. Ю. Крачковского.
+        br
+        a.btn.btn-link(href=urlFor('normal')) канонический порядок сур
+
+  .row
+    .col
+      ol.list
+        each surah in surahs || []
+          small: li
+            a.p-1(href=urlFor('surah', surah.chronology))!=surah.name

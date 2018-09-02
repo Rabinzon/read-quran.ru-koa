@@ -1,0 +1,15 @@
+extends /layouts/application.pug
+
+block content
+  h5.mt-4 Количество найденных аятов по запросу&nbsp;
+    i: strong!=q + ':&nbsp;'
+    !=results.length
+  .mb-4: small.text-muted Аяты отсортированы в хронологическом порядке.
+
+  .row
+    .col
+      ul.list
+        each ayat in results || []
+          small: li.my-1
+            .badge.badge-dark=ayat.surah + ':' + ayat.order
+            a.p-1.text-muted(href=urlFor('surah', ayat.chronology) + '#' + ayat.order)!=ayat.result

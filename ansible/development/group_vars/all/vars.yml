@@ -1,0 +1,3 @@
+read_quran_port: 4000
+node_env: development
+read_quran_env_file: ../.env

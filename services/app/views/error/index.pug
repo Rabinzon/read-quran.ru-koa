@@ -1,0 +1,9 @@
+extends /layouts/application.pug
+
+block content
+    .row
+        .col-md-12
+          h1=status + ' ' + message
+          p.lead Извините, произошла ошибка!
+          a.btn.btn-outline-primary.btn-md(href='/')
+            | Вернуться на главную
