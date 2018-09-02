@@ -46,7 +46,7 @@
         restart_policy: always
         env_file: "{{ read_quran_env_file }}"
         ports:
-          - "{{ read_quran_port }}:{{ read_quran_port }}"
+          - "{{ read_quran_port }}:3000"
         networks:
           - name: "{{ read_quran_docker_network }}"
       tags: [app]
