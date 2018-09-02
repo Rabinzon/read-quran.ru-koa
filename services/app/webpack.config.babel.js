@@ -7,8 +7,9 @@ const mode = (process.env.NODE_ENV === 'test' && 'development') || process.env.N
 
 const assetsPath = path.join(__dirname, 'public', 'assets');
 const faviconPath = path.join(__dirname, 'favicon');
+const imagesPath = path.join(__dirname, 'src', 'images');
 const entryPath = path.join(__dirname, 'src', 'index.js');
-console.log(faviconPath);
+
 module.exports = {
   mode,
   entry: [entryPath],
@@ -41,6 +42,9 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
     }),
-    new CopyWebpackPlugin([{ from: faviconPath, to: path.join(assetsPath, 'favicon'), toType: 'dir' }]),
+    new CopyWebpackPlugin([
+      { from: faviconPath, to: path.join(assetsPath, 'favicon'), toType: 'dir' },
+      { from: imagesPath, to: path.join(assetsPath, 'images'), toType: 'dir' },
+    ]),
   ],
 };
