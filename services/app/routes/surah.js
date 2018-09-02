@@ -23,5 +23,8 @@ export default (router) => {
         }],
       });
       ctx.render('pages/surah', { surah });
+    })
+    .get('krack', '/krac/:id', async (ctx) => {
+      ctx.redirect(router.url('surah', ctx.params.id));
     });
 };
