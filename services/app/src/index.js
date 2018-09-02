@@ -11,7 +11,7 @@ const selectors = {
 };
 
 const $window = $(window);
-const $bodyHtml = $('body, html');
+let $bodyHtml = null;
 
 const scrollToAnchor = (scrollTop = 0) => {
   $bodyHtml.animate({ scrollTop }, 1000);
@@ -40,13 +40,13 @@ const scrollByHash = () => {
 
   if ($block.length) {
     $block.addClass('selected');
-    console.log($block.offset().top);
     scrollToAnchor($block.offset().top - 70);
   }
 };
 
 const render = () => {
   scrollByHash();
+  $bodyHtml = $('body, html');
   $(selectors.toTop).on('click', () => scrollToAnchor());
   $window.on('scroll', onScroll);
 };

@@ -8,7 +8,7 @@ body {
 }
 
 .navbar {
-    background: rgba(#f8f9fa, 0.7);
+    background: rgba(#f8f9fa, 0.95);
 }
 
 .list {
@@ -51,4 +51,12 @@ ul.list  {
     overflow: scroll;
     background: #fff;
     z-index: 9999;
+}
+
+.btn-fixed {
+    right: 1rem;
+    left: auto;
+    bottom: 90px;
+    z-index: 999;
+    position: fixed;
 }
