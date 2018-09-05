@@ -10,6 +10,9 @@ export default (router) => {
         include: [{
           model: Ayat,
         }],
+        order: [
+          [Ayat, 'order', 'ASC'],
+        ],
       });
       ctx.render('pages/surah', { surah });
     })
@@ -21,6 +24,9 @@ export default (router) => {
         include: [{
           model: Ayat,
         }],
+        order: [
+          [Ayat, 'order', 'ASC'],
+        ],
       });
       ctx.render('pages/surah', { surah });
     })
