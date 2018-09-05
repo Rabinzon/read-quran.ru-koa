@@ -14,5 +14,5 @@ block content
     .col
       ol.list
         each surah in surahs || []
-          small: li
-            a.p-1(href=urlFor('surah', surah.chronology))!=surah.name
+          li
+            a.p-1(style='font-size: 0.85rem;' href=urlFor('surah', surah.chronology))!=surah.name
