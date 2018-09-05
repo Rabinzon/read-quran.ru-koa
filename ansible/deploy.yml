@@ -42,7 +42,7 @@
         name: app
         image: "{{ read_quran_docker_image }}"
         state: started
-        command: npm run server
+        command: make server
         restart_policy: always
         env_file: "{{ read_quran_env_file }}"
         ports:

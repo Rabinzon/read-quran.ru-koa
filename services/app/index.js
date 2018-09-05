@@ -4,6 +4,7 @@ import Koa from 'koa';
 import path from 'path';
 import Pug from 'koa-pug';
 import Router from 'koa-router';
+import compress from 'koa-compress';
 import koaLogger from 'koa-logger';
 import serve from 'koa-static';
 import middleware from 'koa-webpack';
@@ -25,14 +26,17 @@ export default () => {
   const app = new Koa();
 
   app.keys = ['some secret hurr'];
+
+  app.use(compress());
+
   app.use(session(app));
   app.use(flash());
   app.use(async (ctx, next) => {
     ctx.state = {
       flash: ctx.flash,
-      userId: ctx.session.userId,
+      /* userId: ctx.session.userId,
       userAvatar: ctx.session.userAvatar,
-      isSignedIn: () => ctx.session.userId !== undefined,
+      isSignedIn: () => ctx.session.userId !== undefined, */
     };
     await next();
   });
@@ -55,9 +59,13 @@ export default () => {
     }
   });
 
-  app.on('error', (err) => {
+  app.on('error', (err, ctx) => {
     if (process.env.NODE_ENV === 'production') {
-      Raven.captureException(err);
+      Raven.captureException(err, {
+        extra: {
+          url: ctx.url,
+        },
+      });
     }
     console.log(err);
   });

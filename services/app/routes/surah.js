@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { Surah, Ayat } from '../models';
 
 export default (router) => {
@@ -14,6 +15,11 @@ export default (router) => {
           [Ayat, 'order', 'ASC'],
         ],
       });
+
+      if (_.isNull(surah)) {
+        ctx.throw(404);
+        return;
+      }
       ctx.render('pages/surah', { surah });
     })
     .get('canonical', '/c/:id', async (ctx) => {
@@ -28,6 +34,12 @@ export default (router) => {
           [Ayat, 'order', 'ASC'],
         ],
       });
+
+      if (_.isNull(surah)) {
+        ctx.throw(404);
+        return;
+      }
+
       ctx.render('pages/surah', { surah });
     })
     .get('krack', '/krac/:id', async (ctx) => {

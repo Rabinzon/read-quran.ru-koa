@@ -2,6 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 const mode = (process.env.NODE_ENV === 'test' && 'development') || process.env.NODE_ENV || 'development';
 
@@ -33,6 +34,13 @@ module.exports = {
         test: /\.json$/,
         loader: 'json-loader',
       },
+    ],
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        test: /\.js($|\?)/i,
+      }),
     ],
   },
   plugins: [
