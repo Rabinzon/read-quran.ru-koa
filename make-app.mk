@@ -18,6 +18,9 @@ app-down:
 app-lint:
 	make lint --directory services/app
 
+app-test:
+	make test --directory services/app
+
 production-setup:
 	ansible-playbook ansible/site.yml -i ansible/production -u admin -vv
 
