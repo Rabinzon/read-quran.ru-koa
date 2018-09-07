@@ -16,7 +16,7 @@
     "gulp": "gulp",
     "sequelize": "sequelize",
     "nodemon": "nodemon",
-    "test": "NODE_ENV=test jest",
+    "test": "NODE_ENV=test jest --forceExit --detectOpenHandles",
     "babel-node": "babel-node",
     "server": "babel-node bin/index.js",
     "flow": "flow",
@@ -78,9 +78,8 @@
     "raven": "^2.6.3",
     "sequelize": "^4.38.0",
     "sequelize-cli": "^4.0.0",
-    "sequelize-test-setup": "0.0.4",
+    "sequelize-fixtures": "^0.7.0",
     "style-loader": "^0.21.0",
-    "umzug": "^2.1.0",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.0.8"
   },
@@ -111,6 +110,7 @@
     "postcss-loader": "^2.1.6",
     "regenerator-runtime": "^0.12.0",
     "sass-loader": "^7.1.0",
+    "seedquelize": "^1.0.1",
     "supertest": "^3.1.0",
     "uglifyjs-webpack-plugin": "^1.3.0"
   }

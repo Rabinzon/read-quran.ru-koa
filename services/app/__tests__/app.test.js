@@ -1,31 +1,70 @@
 import request from 'supertest';
+import sequelizeFixtures from 'sequelize-fixtures';
 import matchers from 'jest-supertest-matchers';
-import db from '../models/';
+import models, { sequelize } from '../models';
+import ayat from './__fixtures__/ayat.json';
+import surah from './__fixtures__/surah.json';
+import search from '../migrations/3.search';
 
 import app from '..';
 
-describe('app', () => {
-  let server;
+let server;
 
-  beforeAll(() => {
+describe('app', () => {
+  beforeAll(async () => {
     jasmine.addMatchers(matchers);
-    db.sequelize.sync({ force: true });
-    server = app().listen();
+
+    await sequelize.sync({ force: true });
+
+    await sequelizeFixtures.loadFixtures([
+      { model: 'Surah', data: surah },
+      { model: 'Ayat', data: ayat },
+    ], models);
+
+    await search.up(sequelize.queryInterface);
+
+    server = app().listen(3000);
   });
 
   describe('requests', () => {
-    it('GET 200', async () => {
+    it('GET index page', async () => {
       const res = await request.agent(server)
         .get('/');
 
       expect(res).toHaveHTTPStatus(200);
       expect(res.text).toMatchSnapshot();
     });
+
+    it('GET surah page', async () => {
+      const res = await request.agent(server)
+        .get('/s/1');
+      expect(res).toHaveHTTPStatus(200);
+      expect(res.text).toMatchSnapshot();
+    });
+
+    it('GET canonical surah page', async () => {
+      const res = await request.agent(server)
+        .get('/c/96');
+      expect(res).toHaveHTTPStatus(200);
+      expect(res.text).toMatchSnapshot();
+    });
+
+    it('GET search page', async () => {
+      const res = await request.agent(server)
+        .get('/search')
+        .query({ q: 'читай' });
+
+      console.log(res.status);
+      expect(res).toHaveHTTPStatus(200);
+      expect(res.text).toMatchSnapshot();
+    });
   });
 
 
-  afterAll(() => {
+  afterAll(async () => {
+    await sequelize.drop({ force: true });
+    await sequelize.close();
     server.close();
-    db.sequelize.drop({ force: true });
   });
 });
+
