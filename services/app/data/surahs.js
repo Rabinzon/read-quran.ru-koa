@@ -122,7 +122,7 @@ module.exports = [
   {
     name: 'Землетрясение',
     id: 99,
-    chronology: 99,
+    chronology: 25,
   },
   {
     name: 'Раскалывание',
