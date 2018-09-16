@@ -17,6 +17,7 @@
     "sequelize": "sequelize",
     "nodemon": "nodemon",
     "test": "NODE_ENV=test jest --forceExit --detectOpenHandles",
+    "test-update": "NODE_ENV=test jest --forceExit --detectOpenHandles  --updateSnapshot",
     "babel-node": "babel-node",
     "server": "babel-node bin/index.js",
     "flow": "flow",

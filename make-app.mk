@@ -21,6 +21,9 @@ app-lint:
 app-test:
 	make test --directory services/app
 
+app-test-update:
+	make test-update --directory services/app
+
 production-setup:
 	ansible-playbook ansible/site.yml -i ansible/production -u admin -vv
 

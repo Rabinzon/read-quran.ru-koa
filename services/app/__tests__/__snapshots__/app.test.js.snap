@@ -55,26 +55,14 @@ exports[`app requests GET canonical surah page 1`] = `
   </head>
   <body class="d-flex flex-column justify-content-between">
     <div class="nav-wrapper">
-      <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
-        <a class="navbar-brand"
-           href="/"
-        >
-          Священный Коран
-        </a>
-        <button class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-        >
-          <span class="navbar-toggler-icon">
-          </span>
-        </button>
-        <div class="collapse navbar-collapse"
-             id="navbarSupportedContent"
-        >
-          <ul class="navbar-nav mr-auto">
-          </ul>
-          <form class="form-inline my-2 my-lg-0"
+      <div class="d-none d-sm-block">
+        <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
+          <a class="navbar-brand"
+             href="/"
+          >
+            Священный Коран
+          </a>
+          <form class="ml-auto form-inline my-2 my-lg-0"
                 url="/search"
                 action="/search"
           >
@@ -90,8 +78,45 @@ exports[`app requests GET canonical surah page 1`] = `
               Найти
             </button>
           </form>
-        </div>
-      </nav>
+        </nav>
+      </div>
+      <div class="d-sm-none w-100">
+        <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
+          <a class="navbar-brand"
+             href="/"
+          >
+            Священный Коран
+          </a>
+          <button class="ml-auto navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+          >
+            <span class="navbar-toggler-icon">
+            </span>
+          </button>
+          <div class="collapse navbar-collapse"
+               id="navbarSupportedContent"
+          >
+            <form class="form-inline my-2 my-lg-0"
+                  url="/search"
+                  action="/search"
+            >
+              <input class="form-control mr-sm-2"
+                     type="search"
+                     name="q"
+                     placeholder="Поиск"
+                     aria-label="Поиск"
+              >
+              <button class="btn btn-outline-success my-2 my-sm-0"
+                      type="submit"
+              >
+                Найти
+              </button>
+            </form>
+          </div>
+        </nav>
+      </div>
     </div>
     <main class="container">
       <div class="row justify-content-md-center">
@@ -251,26 +276,14 @@ exports[`app requests GET index page 1`] = `
   </head>
   <body class="d-flex flex-column justify-content-between">
     <div class="nav-wrapper">
-      <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
-        <a class="navbar-brand"
-           href="/"
-        >
-          Священный Коран
-        </a>
-        <button class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-        >
-          <span class="navbar-toggler-icon">
-          </span>
-        </button>
-        <div class="collapse navbar-collapse"
-             id="navbarSupportedContent"
-        >
-          <ul class="navbar-nav mr-auto">
-          </ul>
-          <form class="form-inline my-2 my-lg-0"
+      <div class="d-none d-sm-block">
+        <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
+          <a class="navbar-brand"
+             href="/"
+          >
+            Священный Коран
+          </a>
+          <form class="ml-auto form-inline my-2 my-lg-0"
                 url="/search"
                 action="/search"
           >
@@ -286,8 +299,45 @@ exports[`app requests GET index page 1`] = `
               Найти
             </button>
           </form>
-        </div>
-      </nav>
+        </nav>
+      </div>
+      <div class="d-sm-none w-100">
+        <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
+          <a class="navbar-brand"
+             href="/"
+          >
+            Священный Коран
+          </a>
+          <button class="ml-auto navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+          >
+            <span class="navbar-toggler-icon">
+            </span>
+          </button>
+          <div class="collapse navbar-collapse"
+               id="navbarSupportedContent"
+          >
+            <form class="form-inline my-2 my-lg-0"
+                  url="/search"
+                  action="/search"
+            >
+              <input class="form-control mr-sm-2"
+                     type="search"
+                     name="q"
+                     placeholder="Поиск"
+                     aria-label="Поиск"
+              >
+              <button class="btn btn-outline-success my-2 my-sm-0"
+                      type="submit"
+              >
+                Найти
+              </button>
+            </form>
+          </div>
+        </nav>
+      </div>
     </div>
     <main class="container">
       <div class="row justify-content-md-center">
@@ -423,26 +473,14 @@ exports[`app requests GET search page 1`] = `
   </head>
   <body class="d-flex flex-column justify-content-between">
     <div class="nav-wrapper">
-      <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
-        <a class="navbar-brand"
-           href="/"
-        >
-          Священный Коран
-        </a>
-        <button class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-        >
-          <span class="navbar-toggler-icon">
-          </span>
-        </button>
-        <div class="collapse navbar-collapse"
-             id="navbarSupportedContent"
-        >
-          <ul class="navbar-nav mr-auto">
-          </ul>
-          <form class="form-inline my-2 my-lg-0"
+      <div class="d-none d-sm-block">
+        <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
+          <a class="navbar-brand"
+             href="/"
+          >
+            Священный Коран
+          </a>
+          <form class="ml-auto form-inline my-2 my-lg-0"
                 url="/search"
                 action="/search"
           >
@@ -459,8 +497,46 @@ exports[`app requests GET search page 1`] = `
               Найти
             </button>
           </form>
-        </div>
-      </nav>
+        </nav>
+      </div>
+      <div class="d-sm-none w-100">
+        <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
+          <a class="navbar-brand"
+             href="/"
+          >
+            Священный Коран
+          </a>
+          <button class="ml-auto navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+          >
+            <span class="navbar-toggler-icon">
+            </span>
+          </button>
+          <div class="collapse navbar-collapse"
+               id="navbarSupportedContent"
+          >
+            <form class="form-inline my-2 my-lg-0"
+                  url="/search"
+                  action="/search"
+            >
+              <input class="form-control mr-sm-2"
+                     value="читай"
+                     type="search"
+                     name="q"
+                     placeholder="Поиск"
+                     aria-label="Поиск"
+              >
+              <button class="btn btn-outline-success my-2 my-sm-0"
+                      type="submit"
+              >
+                Найти
+              </button>
+            </form>
+          </div>
+        </nav>
+      </div>
     </div>
     <main class="container">
       <h5 class="mt-4">
@@ -593,26 +669,14 @@ exports[`app requests GET surah page 1`] = `
   </head>
   <body class="d-flex flex-column justify-content-between">
     <div class="nav-wrapper">
-      <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
-        <a class="navbar-brand"
-           href="/"
-        >
-          Священный Коран
-        </a>
-        <button class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-        >
-          <span class="navbar-toggler-icon">
-          </span>
-        </button>
-        <div class="collapse navbar-collapse"
-             id="navbarSupportedContent"
-        >
-          <ul class="navbar-nav mr-auto">
-          </ul>
-          <form class="form-inline my-2 my-lg-0"
+      <div class="d-none d-sm-block">
+        <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
+          <a class="navbar-brand"
+             href="/"
+          >
+            Священный Коран
+          </a>
+          <form class="ml-auto form-inline my-2 my-lg-0"
                 url="/search"
                 action="/search"
           >
@@ -628,8 +692,45 @@ exports[`app requests GET surah page 1`] = `
               Найти
             </button>
           </form>
-        </div>
-      </nav>
+        </nav>
+      </div>
+      <div class="d-sm-none w-100">
+        <nav class="fixed-top navbar navbar-expand-lg navbar-light border-bottom">
+          <a class="navbar-brand"
+             href="/"
+          >
+            Священный Коран
+          </a>
+          <button class="ml-auto navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+          >
+            <span class="navbar-toggler-icon">
+            </span>
+          </button>
+          <div class="collapse navbar-collapse"
+               id="navbarSupportedContent"
+          >
+            <form class="form-inline my-2 my-lg-0"
+                  url="/search"
+                  action="/search"
+            >
+              <input class="form-control mr-sm-2"
+                     type="search"
+                     name="q"
+                     placeholder="Поиск"
+                     aria-label="Поиск"
+              >
+              <button class="btn btn-outline-success my-2 my-sm-0"
+                      type="submit"
+              >
+                Найти
+              </button>
+            </form>
+          </div>
+        </nav>
+      </div>
     </div>
     <main class="container">
       <div class="row justify-content-md-center">

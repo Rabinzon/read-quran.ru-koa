@@ -8,6 +8,9 @@ prepare:
 test:
 	npm run test
 
+test-update:
+	npm run test-update
+
 lint:
 	npm run lint
 
