@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile.production
     volumes:
       - "./services/app:/usr/src/app:rw"
-    command: "make server"
+    command: "make migrate seed start"
     ports:
       - "${READ_QURAN_PORT}:3000"
     networks:
