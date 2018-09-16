@@ -13,5 +13,5 @@ make app
 
 You can change environment variables in `ansible` directory
 
-This project develop with [koa](https://github.com/koajs), [postgres](https://github.com/postgres/postgres),
+Project developing with [koa](https://github.com/koajs), [postgres](https://github.com/postgres/postgres),
 [sequelize](https://github.com/sequelize/sequelize) and [bootstrap](https://github.com/twbs/bootstrap).
