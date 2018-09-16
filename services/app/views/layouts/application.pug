@@ -21,18 +21,27 @@ html(lang="en")
 
   body.d-flex.flex-column.justify-content-between
     .nav-wrapper
-      nav.fixed-top.navbar.navbar-expand-lg.navbar-light.border-bottom
-        a.navbar-brand(href=urlFor('root'))
-          | Священный Коран
+      .d-none.d-sm-block
+        nav.fixed-top.navbar.navbar-expand-lg.navbar-light.border-bottom
+          a.navbar-brand(href=urlFor('root'))
+            | Священный Коран
 
-        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent')
-          span.navbar-toggler-icon
-
-        #navbarSupportedContent.collapse.navbar-collapse
-          ul.navbar-nav.mr-auto
           form(url=urlFor('search') action=urlFor('search')).form-inline.my-2.my-lg-0
             input.form-control.mr-sm-2(value=q, type='search', name='q' placeholder='Поиск', aria-label='Поиск')
             button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Найти
+
+      .d-sm-none.w-100
+        nav.fixed-top.navbar.navbar-expand-lg.navbar-light.border-bottom
+          a.navbar-brand(href=urlFor('root'))
+            | Священный Коран
+
+          button.ml-auto.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent')
+            span.navbar-toggler-icon
+
+          #navbarSupportedContent.collapse.navbar-collapse
+            form(url=urlFor('search') action=urlFor('search')).form-inline.my-2.my-lg-0
+              input.form-control.mr-sm-2(value=q, type='search', name='q' placeholder='Поиск', aria-label='Поиск')
+              button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Найти
 
     main.container
       - const { msg, level = 'info' } = flash.get() || error || {}

@@ -8,11 +8,15 @@ block content
         p.lead.mb-0 в хронологическом порядке
         small На данный момент доступен только перевод И. Ю. Крачковского.
         br
-        a.btn.btn-link(href=urlFor('normal')) канонический порядок сур
+        if isNormalOrder
+          a.btn.btn-link(href=urlFor('root')) хронологический порядок сур
+        else
+          a.btn.btn-link(href=urlFor('normal')) канонический порядок сур
 
   .row
     .col
       ol.list
         each surah in surahs || []
           li
-            a.p-1(style='font-size: 0.85rem;' href=urlFor('surah', surah.chronology))!=surah.name
+            - const link = isNormalOrder ? urlFor('canonical', surah.id) : urlFor('surah', surah.chronology)
+            a.p-1(style='font-size: 0.85rem;' href=link)!=surah.name

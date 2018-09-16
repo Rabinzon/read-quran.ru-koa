@@ -39,7 +39,6 @@ export default (router) => {
         ctx.throw(404);
         return;
       }
-
       ctx.render('pages/surah', { surah });
     })
     .get('krack', '/krac/:id', async (ctx) => {

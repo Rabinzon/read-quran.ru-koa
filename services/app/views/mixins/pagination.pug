@@ -3,25 +3,48 @@ mixin pagination(surah)
 
   nav(aria-label='...')
     ul.pagination.pagination-sm.d-flex.justify-content-between.mt-4
+      if isNormalOrder
+        if surah.id - 1 > 0
+          li.page-item
+            a.page-link(href=urlFor('canonical', surah.id - 1))
+              span(aria-hidden='true') «
+              | &nbsp; предыдущая
+        else
+          li.page-item.disabled
+            a.page-link(href='#')
+              span(aria-hidden='true') «
+              | &nbsp; предыдущая
 
-      if surah.chronology - 1 > 0
-        li.page-item
-          a.page-link(href=urlFor('surah', surah.chronology - 1))
-            span(aria-hidden='true') «
-            | &nbsp; предыдущая
-      else
-        li.page-item.disabled
-          a.page-link(href='#')
-            span(aria-hidden='true') «
-            | &nbsp; предыдущая
+        if (surah.id + 1) < maxSurahsCount
+          li.page-item.next
+            a.page-link(href=(href = urlFor('canonical', surah.id + 1)))
+              | следующая &nbsp;
+              span(aria-hidden='true') »
+        else
+          li.page-item.next.disabled
+            a.page-link(href='#')
+              | следующая &nbsp;
+              span(aria-hidden='true') »
 
-      if (surah.chronology + 1) < maxSurahsCount
-        li.page-item.next
-          a.page-link(href=(href=urlFor('surah', surah.chronology + 1)))
-            | следующая &nbsp;
-            span(aria-hidden='true') »
       else
-        li.page-item.next.disabled
-          a.page-link(href='#')
-            | следующая &nbsp;
-            span(aria-hidden='true') »
+        if surah.chronology - 1 > 0
+          li.page-item
+            a.page-link(href=urlFor('surah', surah.chronology - 1))
+              span(aria-hidden='true') «
+              | &nbsp; предыдущая
+        else
+          li.page-item.disabled
+            a.page-link(href='#')
+              span(aria-hidden='true') «
+              | &nbsp; предыдущая
+
+        if (surah.chronology + 1) < maxSurahsCount
+          li.page-item.next
+            a.page-link(href=(href=urlFor('surah', surah.chronology + 1)))
+              | следующая &nbsp;
+              span(aria-hidden='true') »
+        else
+          li.page-item.next.disabled
+            a.page-link(href='#')
+              | следующая &nbsp;
+              span(aria-hidden='true') »

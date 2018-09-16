@@ -8,7 +8,8 @@ export default (router) => {
           ['chronology', 'ASC'],
         ],
       });
-
+      ctx.session.isNormalOrder = false;
+      ctx.state.isNormalOrder = false;
       ctx.render('pages/index', { surahs });
     })
     .get('normal', '/normal', async (ctx) => {
@@ -17,6 +18,8 @@ export default (router) => {
           ['id', 'ASC'],
         ],
       });
+      ctx.session.isNormalOrder = true;
+      ctx.state.isNormalOrder = true;
       ctx.render('pages/index', { surahs });
     });
 };
