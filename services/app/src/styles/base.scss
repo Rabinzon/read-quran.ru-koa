@@ -60,3 +60,8 @@ ul.list  {
     z-index: 999;
     position: fixed;
 }
+
+.custom-dropdown-menu {
+    max-height: 250px;
+    overflow-y: scroll;
+}

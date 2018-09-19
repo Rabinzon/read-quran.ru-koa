@@ -20,7 +20,14 @@ export default (router) => {
         ctx.throw(404);
         return;
       }
-      ctx.render('pages/surah', { surah });
+
+      const surahs = await Surah.findAll({
+        order: [
+          ['chronology', 'ASC'],
+        ],
+      });
+
+      ctx.render('pages/surah', { surah, surahs });
     })
     .get('canonical', '/c/:id', async (ctx) => {
       const surah = await Surah.find({
@@ -39,7 +46,14 @@ export default (router) => {
         ctx.throw(404);
         return;
       }
-      ctx.render('pages/surah', { surah });
+
+      const surahs = await Surah.findAll({
+        order: [
+          ['id', 'ASC'],
+        ],
+      });
+
+      ctx.render('pages/surah', { surah, surahs });
     })
     .get('krack', '/krac/:id', async (ctx) => {
       ctx.redirect(router.url('surah', ctx.params.id));

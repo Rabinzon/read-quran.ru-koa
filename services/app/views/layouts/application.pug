@@ -26,9 +26,20 @@ html(lang="en")
           a.navbar-brand(href=urlFor('root'))
             | Священный Коран
 
-          form(url=urlFor('search') action=urlFor('search')).ml-auto.form-inline.my-2.my-lg-0
-            input.form-control.mr-sm-2(value=q, type='search', name='q' placeholder='Поиск', aria-label='Поиск')
-            button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Найти
+          .ml-auto.d-flex.align-items-center
+            if surah
+              .dropdown
+                button#dropdownMenuButton.btn.btn-link.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  !=surah.name
+                .custom-dropdown-menu.dropdown-menu(aria-labelledby='dropdownMenuButton')
+                  each surah, i in surahs || []
+                      - const link = isNormalOrder ? urlFor('canonical', surah.id) : urlFor('surah', surah.chronology)
+                      a.dropdown-item.text-info(style='font-size: 0.85rem;' href=link)!= i + 1 + '. ' + surah.name
+
+
+            form(url=urlFor('search') action=urlFor('search')).ml-auto.form-inline.my-2.my-lg-0
+              input.form-control.mr-sm-2(value=q, type='search', name='q' placeholder='Поиск', aria-label='Поиск')
+              button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Найти
 
       .d-sm-none.w-100
         nav.fixed-top.navbar.navbar-expand-lg.navbar-light.border-bottom
@@ -39,10 +50,17 @@ html(lang="en")
             span.navbar-toggler-icon
 
           #navbarSupportedContent.collapse.navbar-collapse
+            if surah
+              .dropdown
+                button.pl-0#dropdownMenuButton.btn.btn-link.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  !=surah.name
+                .custom-dropdown-menu.dropdown-menu(aria-labelledby='dropdownMenuButton')
+                  each surah, i in surahs || []
+                    - const link = isNormalOrder ? urlFor('canonical', surah.id) : urlFor('surah', surah.chronology)
+                    a.dropdown-item.text-info(style='font-size: 0.85rem;' href=link)!= i + 1 + '. ' + surah.name
             form(url=urlFor('search') action=urlFor('search')).form-inline.my-2.my-lg-0
               input.form-control.mr-sm-2(value=q, type='search', name='q' placeholder='Поиск', aria-label='Поиск')
               button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Найти
-
     main.container
       - const { msg, level = 'info' } = flash.get() || error || {}
       if msg

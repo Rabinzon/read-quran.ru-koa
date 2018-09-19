@@ -34,10 +34,7 @@ export default () => {
   app.use(async (ctx, next) => {
     ctx.state = {
       flash: ctx.flash,
-      isNormalOrder: ctx.session.isNormalOrder || false,
-      /* userId: ctx.session.userId,
-      userAvatar: ctx.session.userAvatar,
-      isSignedIn: () => ctx.session.userId !== undefined, */
+      isNormalOrder: ctx.session.isNormalOrder || false
     };
     await next();
   });

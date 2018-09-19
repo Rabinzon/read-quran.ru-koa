@@ -62,22 +62,45 @@ exports[`app requests GET canonical surah page 1`] = `
           >
             Священный Коран
           </a>
-          <form class="ml-auto form-inline my-2 my-lg-0"
-                url="/search"
-                action="/search"
-          >
-            <input class="form-control mr-sm-2"
-                   type="search"
-                   name="q"
-                   placeholder="Поиск"
-                   aria-label="Поиск"
+          <div class="ml-auto d-flex align-items-center">
+            <div class="dropdown">
+              <button class="btn btn-link dropdown-toggle"
+                      id="dropdownMenuButton"
+                      type="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+              >
+                Сгусток
+              </button>
+              <div class="custom-dropdown-menu dropdown-menu"
+                   aria-labelledby="dropdownMenuButton"
+              >
+                <a class="dropdown-item text-info"
+                   style="font-size: 0.85rem;"
+                   href="/s/1"
+                >
+                  1. Сгусток
+                </a>
+              </div>
+            </div>
+            <form class="ml-auto form-inline my-2 my-lg-0"
+                  url="/search"
+                  action="/search"
             >
-            <button class="btn btn-outline-success my-2 my-sm-0"
-                    type="submit"
-            >
-              Найти
-            </button>
-          </form>
+              <input class="form-control mr-sm-2"
+                     type="search"
+                     name="q"
+                     placeholder="Поиск"
+                     aria-label="Поиск"
+              >
+              <button class="btn btn-outline-success my-2 my-sm-0"
+                      type="submit"
+              >
+                Найти
+              </button>
+            </form>
+          </div>
         </nav>
       </div>
       <div class="d-sm-none w-100">
@@ -98,6 +121,27 @@ exports[`app requests GET canonical surah page 1`] = `
           <div class="collapse navbar-collapse"
                id="navbarSupportedContent"
           >
+            <div class="dropdown">
+              <button class="pl-0 btn btn-link dropdown-toggle"
+                      id="dropdownMenuButton"
+                      type="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+              >
+                Сгусток
+              </button>
+              <div class="custom-dropdown-menu dropdown-menu"
+                   aria-labelledby="dropdownMenuButton"
+              >
+                <a class="dropdown-item text-info"
+                   style="font-size: 0.85rem;"
+                   href="/s/1"
+                >
+                  1. Сгусток
+                </a>
+              </div>
+            </div>
             <form class="form-inline my-2 my-lg-0"
                   url="/search"
                   action="/search"
@@ -283,22 +327,24 @@ exports[`app requests GET index page 1`] = `
           >
             Священный Коран
           </a>
-          <form class="ml-auto form-inline my-2 my-lg-0"
-                url="/search"
-                action="/search"
-          >
-            <input class="form-control mr-sm-2"
-                   type="search"
-                   name="q"
-                   placeholder="Поиск"
-                   aria-label="Поиск"
+          <div class="ml-auto d-flex align-items-center">
+            <form class="ml-auto form-inline my-2 my-lg-0"
+                  url="/search"
+                  action="/search"
             >
-            <button class="btn btn-outline-success my-2 my-sm-0"
-                    type="submit"
-            >
-              Найти
-            </button>
-          </form>
+              <input class="form-control mr-sm-2"
+                     type="search"
+                     name="q"
+                     placeholder="Поиск"
+                     aria-label="Поиск"
+              >
+              <button class="btn btn-outline-success my-2 my-sm-0"
+                      type="submit"
+              >
+                Найти
+              </button>
+            </form>
+          </div>
         </nav>
       </div>
       <div class="d-sm-none w-100">
@@ -480,23 +526,25 @@ exports[`app requests GET search page 1`] = `
           >
             Священный Коран
           </a>
-          <form class="ml-auto form-inline my-2 my-lg-0"
-                url="/search"
-                action="/search"
-          >
-            <input class="form-control mr-sm-2"
-                   value="читай"
-                   type="search"
-                   name="q"
-                   placeholder="Поиск"
-                   aria-label="Поиск"
+          <div class="ml-auto d-flex align-items-center">
+            <form class="ml-auto form-inline my-2 my-lg-0"
+                  url="/search"
+                  action="/search"
             >
-            <button class="btn btn-outline-success my-2 my-sm-0"
-                    type="submit"
-            >
-              Найти
-            </button>
-          </form>
+              <input class="form-control mr-sm-2"
+                     value="читай"
+                     type="search"
+                     name="q"
+                     placeholder="Поиск"
+                     aria-label="Поиск"
+              >
+              <button class="btn btn-outline-success my-2 my-sm-0"
+                      type="submit"
+              >
+                Найти
+              </button>
+            </form>
+          </div>
         </nav>
       </div>
       <div class="d-sm-none w-100">
@@ -676,22 +724,45 @@ exports[`app requests GET surah page 1`] = `
           >
             Священный Коран
           </a>
-          <form class="ml-auto form-inline my-2 my-lg-0"
-                url="/search"
-                action="/search"
-          >
-            <input class="form-control mr-sm-2"
-                   type="search"
-                   name="q"
-                   placeholder="Поиск"
-                   aria-label="Поиск"
+          <div class="ml-auto d-flex align-items-center">
+            <div class="dropdown">
+              <button class="btn btn-link dropdown-toggle"
+                      id="dropdownMenuButton"
+                      type="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+              >
+                Сгусток
+              </button>
+              <div class="custom-dropdown-menu dropdown-menu"
+                   aria-labelledby="dropdownMenuButton"
+              >
+                <a class="dropdown-item text-info"
+                   style="font-size: 0.85rem;"
+                   href="/s/1"
+                >
+                  1. Сгусток
+                </a>
+              </div>
+            </div>
+            <form class="ml-auto form-inline my-2 my-lg-0"
+                  url="/search"
+                  action="/search"
             >
-            <button class="btn btn-outline-success my-2 my-sm-0"
-                    type="submit"
-            >
-              Найти
-            </button>
-          </form>
+              <input class="form-control mr-sm-2"
+                     type="search"
+                     name="q"
+                     placeholder="Поиск"
+                     aria-label="Поиск"
+              >
+              <button class="btn btn-outline-success my-2 my-sm-0"
+                      type="submit"
+              >
+                Найти
+              </button>
+            </form>
+          </div>
         </nav>
       </div>
       <div class="d-sm-none w-100">
@@ -712,6 +783,27 @@ exports[`app requests GET surah page 1`] = `
           <div class="collapse navbar-collapse"
                id="navbarSupportedContent"
           >
+            <div class="dropdown">
+              <button class="pl-0 btn btn-link dropdown-toggle"
+                      id="dropdownMenuButton"
+                      type="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+              >
+                Сгусток
+              </button>
+              <div class="custom-dropdown-menu dropdown-menu"
+                   aria-labelledby="dropdownMenuButton"
+              >
+                <a class="dropdown-item text-info"
+                   style="font-size: 0.85rem;"
+                   href="/s/1"
+                >
+                  1. Сгусток
+                </a>
+              </div>
+            </div>
             <form class="form-inline my-2 my-lg-0"
                   url="/search"
                   action="/search"
