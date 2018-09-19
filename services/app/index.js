@@ -34,7 +34,7 @@ export default () => {
   app.use(async (ctx, next) => {
     ctx.state = {
       flash: ctx.flash,
-      isNormalOrder: ctx.session.isNormalOrder || false
+      isNormalOrder: ctx.session.isNormalOrder || false,
     };
     await next();
   });
@@ -59,6 +59,16 @@ export default () => {
 
   app.on('error', (err, ctx) => {
     if (process.env.NODE_ENV === 'production') {
+      if (err.status === 404) {
+        Raven.captureMessage(ctx.url, {
+          extra: {
+            url: ctx.url,
+            error: err,
+          },
+        });
+
+        return;
+      }
       Raven.captureException(err, {
         extra: {
           url: ctx.url,
