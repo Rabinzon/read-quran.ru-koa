@@ -60,13 +60,6 @@ export default () => {
   app.on('error', (err, ctx) => {
     if (process.env.NODE_ENV === 'production') {
       if (err.status === 404) {
-        Raven.captureMessage(ctx.url, {
-          extra: {
-            url: ctx.url,
-            error: err,
-          },
-        });
-
         return;
       }
       Raven.captureException(err, {
