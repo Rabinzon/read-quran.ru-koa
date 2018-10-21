@@ -4,7 +4,7 @@ dist
 flow-typed
 .tern-port
 *.sqlite
-public/assets
+public
 .bash_history
 .env
 .idea

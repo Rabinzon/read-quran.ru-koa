@@ -53,6 +53,9 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: faviconPath, to: path.join(assetsPath, 'favicon'), toType: 'dir' },
       { from: imagesPath, to: path.join(assetsPath, 'images'), toType: 'dir' },
+      { from: path.join(__dirname, 'robots.txt'), to: path.join(__dirname, 'public', 'robots.txt') },
+      { from: path.join(__dirname, 'sitemap.xml'), to: path.join(__dirname, 'public', 'sitemap.xml') },
+
     ]),
   ],
 };
