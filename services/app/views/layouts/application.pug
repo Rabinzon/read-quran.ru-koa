@@ -25,6 +25,9 @@ html(lang="en")
         nav.fixed-top.navbar.navbar-expand-lg.navbar-light.border-bottom
           a.navbar-brand(href=urlFor('root'))
             | Священный Коран
+          ul.nav
+            li.nav-item
+              a.nav-link(href='http://free-quran.ru/') Коран в подарок
 
           .ml-auto.d-flex.align-items-center
             if surah
@@ -50,6 +53,9 @@ html(lang="en")
             span.navbar-toggler-icon
 
           #navbarSupportedContent.collapse.navbar-collapse
+            ul.nav
+              li.nav-item
+                a.nav-link(href='http://free-quran.ru/') Коран в подарок
             if surah
               .dropdown
                 button.pl-0#dropdownMenuButton.btn.btn-link.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
