@@ -1,15 +1,21 @@
-language: node_js
-node_js:
-  - stable
-services:
-  - postgresql
-before_install: cd $TRAVIS_BUILD_DIR/services/app
-before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-cache: npm
-script: make lint test
-global:
-  - DATABASE_URL=postgres://127.0.0.1:5432/travis_ci_test
+env:
+  - DOCKER_COMPOSE_VERSION=1.21.0
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+jobs:
+  include:
+  - stage: build docker image with tag
+    if: branch = master AND tag =~ ^v
+    script:
+    - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+    - docker build -t rabinzon/read_quran --file services/app/Dockerfile.prod services/app/
+    - docker push rabinzon/read_quran:"$TRAVICE_TAG"
+
 notifications:
   slack:
     secure: $SLACK_TOKEN
