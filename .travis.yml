@@ -1,21 +1,19 @@
 env:
-  - DOCKER_COMPOSE_VERSION=1.21.0
-
+- DOCKER_COMPOSE_VERSION=1.21.0
 before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-
+- sudo rm /usr/local/bin/docker-compose
+- curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
+  -s`-`uname -m` > docker-compose
+- chmod +x docker-compose
+- sudo mv docker-compose /usr/local/bin
 jobs:
   include:
-  - stage: build docker image with tag
-    # if: branch = master AND tag =~ ^v
-    script:
-    - docker login -u=rabinzon -p="$DOCKER_PASS"
-    - docker build -t rabinzon/read_quran --file services/app/Dockerfile.production services/app/
-    - docker push rabinzon/read_quran:latest
-
+    - stage: build docker image with tag
+      if: branch = master AND tag =~ ^v
+      script:
+        - docker login -u=rabinzon -p="$DOCKER_PASS"
+        - docker build -t rabinzon/read_quran --file services/app/Dockerfile.production services/app/
+        - docker push rabinzon/read_quran:"$TRAVICE_TAG"
 notifications:
   slack:
-    secure: $SLACK_TOKEN
+    secure: f/VCUTWBbTLYW1NzcvU+yrVRw1odcuwIUDlzvgr9vt9EgawYHapMR7YWg8nove67GBrs7zrT+fwN2O2fxz6DZpzxhuvwvvDgMxMODGSriUDfZofIseK57eug0e7mwQsWqmqt3FrnvaTivLExKYa1JdXhC3hx0E60dlBtxNJiciyqDiYDYBddwdsqcCIYKXBUefmhXV8HlmK+w3cL4U4m4ogeBy9hGgEV0AlNQNDLiHtY6WL/+cZOOVsYBSj7XfPAlB1iI01/SBdj6aC+BFttAspsDgwuiWpsc1vGuuke1OC4iaDIpXgR7Ski6V0JIsCumkJLEFQbhUMpZr8nDjEi1ZiLbuYMyh6R76CJW+dsr7dHX/b+HESnELYZMagsCbHiLK/myeqNjRS1xWK9+faPXOolRcOy9oFLDmGXLQSjRdXk/ZTgHW7ZuUJ67nR2u/2Me3BZ1UIFvntSAeFWq4qju3yyzyP4I8+/e23whJHVwpevjAGx3kzTUEKBWOFHjnSGa1wMs4XICT90MkzbOm9Oeqa9BrzqNYKWG8ePrnNZlVhPCL65AKlqs4dcA2/758U3exGOg7yemqyNY4BZfp05AS7FaxyLE03Iw4sRXjrpXAF9nhsVUWS04W7wtb4CJkLe+lYUq8QEI8ISalnvvvvjDQeBcikcwxZAH1VbF/aZ+Q4=
