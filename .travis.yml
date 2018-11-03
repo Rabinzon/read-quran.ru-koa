@@ -10,8 +10,11 @@ before_install:
 
 jobs:
   include:
+    - stage: test
+      script: docker-compose -f services/app/docker-compose.test.yml run app
+
     - stage: build docker image with tag
-      if: branch = master AND tag =~ ^v
+      if: branch = master AND tag =~ /^v/
       script:
         - docker login -u=rabinzon -p="$DOCKER_PASS"
         - docker build -t rabinzon/read_quran --file services/app/Dockerfile.production services/app/
