@@ -10,8 +10,8 @@ before_install:
 
 jobs:
   include:
-    # - stage: test
-    #  script: docker-compose -f services/app/docker-compose.test.yml run app
+    - stage: test
+      script: docker-compose -f services/app/docker-compose.test.yml run app
 
     - stage: build docker image with tag
       if: tag =~ /^v/
