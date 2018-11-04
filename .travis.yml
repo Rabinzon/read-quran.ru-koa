@@ -18,7 +18,8 @@ jobs:
       script:
         - docker login -u=rabinzon -p="$DOCKER_PASS"
         - docker build -t rabinzon/read_quran --file services/app/Dockerfile.production services/app/
-        - docker push rabinzon/read_quran:"$TRAVIS_BRANCH"
+        - sudo docker tag rabinzon/read_quran rabinzon/read_quran:"$TRAVIS_BRANCH"
+        - docker push rabinzon/read_quran
 
 notifications:
   slack:
