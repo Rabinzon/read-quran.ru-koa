@@ -33,7 +33,7 @@ describe('app', () => {
 
       expect(res).toHaveHTTPStatus(200);
       expect(res.text).toMatchSnapshot();
-    });
+    }, 10000);
 
     it('GET surah page', async () => {
       const res = await request.agent(server)
@@ -54,7 +54,6 @@ describe('app', () => {
         .get('/search')
         .query({ q: 'читай' });
 
-      console.log(res.status);
       expect(res).toHaveHTTPStatus(200);
       expect(res.text).toMatchSnapshot();
     });

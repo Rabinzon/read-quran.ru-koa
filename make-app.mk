@@ -1,3 +1,6 @@
+development-setup-env:
+	ansible-playbook ansible/development.yml -i ansible/development
+
 app: app-down
 	docker-compose up
 
@@ -6,9 +9,6 @@ app-build:
 
 app-bash:
 	docker-compose run app bash
-
-development-setup-env:
-	ansible-playbook ansible/development.yml -i ansible/development
 
 app-setup: development-setup-env app-build
 
@@ -19,10 +19,10 @@ app-lint:
 	make lint --directory services/app
 
 app-test:
-	make test --directory services/app
+	docker-compose -f services/app/docker-compose.test.yml run app
 
 app-test-update:
-	make test-update --directory services/app
+	docker-compose -f services/app/docker-compose.test.yml run app make test-update
 
 production-setup:
 	ansible-playbook ansible/site.yml -i ansible/production -u ubuntu -vv

@@ -4,12 +4,16 @@ services:
   app:
     environment:
       - DATABASE_URL=postgres://admin:postgres@postgres:5432/postgres
+      - NODE_ENV=test
+
     build:
       context: .
       dockerfile: Dockerfile.production
+    working_dir: /usr/src/app
     volumes:
-      - "./:/usr/src/app:rw"
-    command: "make migrate test"
+      - ".:/usr/src/app:rw"
+      - "/usr/src/app/node_modules"
+    command: "make migrate check"
     ports:
       - "3000:3000"
     networks:
@@ -25,6 +29,7 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=postgres
+
     networks:
       - services
 

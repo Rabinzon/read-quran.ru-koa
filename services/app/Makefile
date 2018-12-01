@@ -5,6 +5,9 @@ prepare:
 	touch .bash_history
 	touch .env
 
+build:
+	npm run build
+
 test:
 	npm run test
 
