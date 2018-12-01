@@ -25,10 +25,10 @@ app-test-update:
 	make test-update --directory services/app
 
 production-setup:
-	ansible-playbook ansible/site.yml -i ansible/production -u admin -vv
+	ansible-playbook ansible/site.yml -i ansible/production -u ubuntu -vv
 
 production-deploy:
-	ansible-playbook ansible/deploy.yml -i ansible/production -u admin -vv
+	ansible-playbook ansible/deploy.yml -i ansible/production -u ubuntu -vv
 
 production-deploy-app:
-	ansible-playbook ansible/deploy.yml -i ansible/production -u admin -vv -t app
+	ansible-playbook --tags "app, env" ansible/deploy.yml -i ansible/production -u ubuntu -vv

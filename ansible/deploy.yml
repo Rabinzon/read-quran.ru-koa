@@ -6,7 +6,15 @@
   # become: yes
   # become_user: "{{ app_run_user }}"
 
+  vars_prompt:
+  - name: "read_quran_image_tag"
+    prompt: "App image tag"
+    private: no
+
   tasks:
+    - set_fact: read_quran_image_tag={{ read_quran_image_tag }}
+      tags: always
+
     - template:
         src: environment.j2
         dest: "{{ read_quran_env_file }}"
@@ -14,7 +22,7 @@
 
     - name: download read_quran
       docker_image:
-        name: "{{ read_quran_docker_image }}"
+        name: "{{ read_quran_docker_image }}:{{ read_quran_image_tag }}"
         force: yes
       tags: [app]
 
@@ -39,8 +47,8 @@
     - name: start app
       docker_container:
         recreate: yes
-        name: app
-        image: "{{ read_quran_docker_image }}"
+        name: read-quran-app
+        image: "{{ read_quran_docker_image }}:{{ read_quran_image_tag }}"
         state: started
         command: make server
         restart_policy: always
@@ -50,8 +58,6 @@
         networks:
           - name: "{{ read_quran_docker_network }}"
       tags: [app]
-
-
 
   post_tasks:
     - name: notify slack
