@@ -7,9 +7,8 @@ block content
   .mb-4: small.text-muted Аяты отсортированы в хронологическом порядке.
 
   .row
-    .col
-      ul.pl-0.list
-        each ayat in results || []
-          small: li.my-1
-            .badge.badge-dark=ayat.surah + ':' + ayat.order
-            a.p-1.text-muted(href=urlFor('surah', ayat.chronology) + '#' + ayat.order)!=ayat.result
+    .col: .pl-0
+      each ayat in results || []
+        p.my-1
+          span.badge.badge-dark=ayat.surah + ':' + ayat.order
+          a.p-1.text-muted.font-normal(href=urlFor('surah', ayat.chronology) + '#' + ayat.order)!=ayat.result

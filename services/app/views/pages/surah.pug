@@ -14,6 +14,6 @@ block content
       each ayat in surah.Ayats || []
         .ayat.d-flex
           .d-block: .badge.badge-dark=ayat.surah + ':' + ayat.order
-          .p-1(style='font-size: 0.85rem;' id=ayat.order)!=ayat.text
+          .p-1(id=ayat.order).font-normal!=ayat.text
 
       +pagination(surah)

@@ -207,8 +207,7 @@ exports[`app requests GET canonical surah page 1`] = `
                 96:1
               </div>
             </div>
-            <div class="p-1"
-                 style="font-size: 0.85rem;"
+            <div class="p-1 font-normal"
                  id="1"
             >
               (1). Читай! Во имя Господа твоего, который сотворил -
@@ -657,20 +656,18 @@ exports[`app requests GET search page 1`] = `
       </div>
       <div class="row">
         <div class="col">
-          <ul class="pl-0 list">
-            <small>
-              <li class="my-1">
-                <div class="badge badge-dark">
-                  96:1
-                </div>
-                <a class="p-1 text-muted"
-                   href="/s/1#1"
-                >
-                  (1). Читай! Во имя Господа твоего, который сотворил -
-                </a>
-              </li>
-            </small>
-          </ul>
+          <div class="pl-0">
+            <p class="my-1">
+              <span class="badge badge-dark">
+                96:1
+              </span>
+              <a class="p-1 text-muted font-normal"
+                 href="/s/1#1"
+              >
+                (1). Читай! Во имя Господа твоего, который сотворил -
+              </a>
+            </p>
+          </div>
         </div>
       </div>
       <button class="btn btn-fixed js-to-top-btn d-none btn-dark btn-sm">
@@ -923,8 +920,7 @@ exports[`app requests GET surah page 1`] = `
                 96:1
               </div>
             </div>
-            <div class="p-1"
-                 style="font-size: 0.85rem;"
+            <div class="p-1 font-normal"
                  id="1"
             >
               (1). Читай! Во имя Господа твоего, который сотворил -
