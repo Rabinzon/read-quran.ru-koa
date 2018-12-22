@@ -32,8 +32,15 @@ export default (router) => {
         ],
       });
 
+      const translatorName = translator === 'krachkovsky' ? 'И. Ю. Крачковского' : 'Э. Р. Кулиева';
+      const pageTitle = `Сура ${surah.id + 1}. ${surah.name}, перевод ${translatorName}`;
+
       ctx.render('pages/surah', {
-        surah, surahs, translator, isCanonical: false,
+        surah,
+        surahs,
+        translator,
+        isCanonical: false,
+        title: pageTitle,
       });
     })
     .get('canonical', '/c/:id/:translator?', async (ctx) => {
@@ -65,8 +72,15 @@ export default (router) => {
         ],
       });
 
+      const translatorName = translator === 'krachkovsky' ? 'И. Ю. Крачковского' : 'Э. Р. Кулиева';
+      const pageTitle = `Сура ${surah.id + 1}. ${surah.name}, перевод ${translatorName}`;
+
       ctx.render('pages/surah', {
-        surah, surahs, translator, isCanonical: true,
+        surah,
+        surahs,
+        translator,
+        isCanonical: true,
+        title: pageTitle,
       });
     })
     .get('krack', '/krac/:id', async (ctx) => {

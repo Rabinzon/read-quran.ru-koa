@@ -9,7 +9,7 @@ const selectors = {
 };
 
 const $window = $(window);
-let $bodyHtml = null;
+let $bodyHtml = $('html, body');
 
 const scrollToAnchor = (scrollTop = 0) => {
   $bodyHtml.animate({ scrollTop }, 1000);

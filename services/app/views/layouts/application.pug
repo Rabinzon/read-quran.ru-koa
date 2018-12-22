@@ -3,9 +3,9 @@ include /mixins/forms.pug
 doctype html
 html(lang="en")
   head
-    title= 'Священный Коран'
-    meta(name='description' content='Сайт для удобного чтения Корана в хронологическом порядоке')
-    meta(name='keywords' content='Коран, читать коран, коран хронологический порядок')
+    title=title || 'Священный Коран в хронологическом порядке'
+    meta(name='description' content='Сайт для удобного чтения Корана в хронологическом порядке. Доступны переводы И. Ю. Крачковского, Э. Р. Кулиева.')
+    meta(name='keywords' content='Коран, читать коран, коран хронологический порядок, читать коран онлайн, коран на русском, коран чтение')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='apple-touch-icon', sizes='180x180', href='/assets/favicon/apple-touch-icon.png?v=wAXXEkEEYG')
     link(rel='icon', type='image/png', sizes='32x32', href='/assets/favicon/favicon-32x32.png?v=wAXXEkEEYG')
@@ -16,7 +16,6 @@ html(lang="en")
     meta(name='msapplication-TileColor', content='#da532c')
     meta(name='msapplication-config', content='/assets/favicon/browserconfig.xml?v=wAXXEkEEYG')
     meta(name='theme-color', content='#ffffff')
-
     script(src='/assets/main.js')
 
   body.d-flex.flex-column.justify-content-between
@@ -85,5 +84,3 @@ html(lang="en")
               small Коран в хронологическом порядке
         a(href='http://free-quran.ru/')
           small Бесплатный Коран
-
-

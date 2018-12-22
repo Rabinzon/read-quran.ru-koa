@@ -5,7 +5,9 @@ block content
     .col-md-8.col-sm-12
       .text-center.my-5
         h1 Священный Коран
-        p.lead.mb-0 в хронологическом порядке
+          br
+          | в хронологическом порядке
+        p.lead.mb-0
         small На данный момент доступен только перевод И. Ю. Крачковского.
         br
         if isNormalOrder
@@ -19,4 +21,4 @@ block content
         each surah in surahs || []
           li
             - const link = isNormalOrder ? urlFor('canonical', surah.id) : urlFor('surah', surah.chronology)
-            a.p-1(style='font-size: 0.85rem;' href=link)!=surah.name
+            a.p-1.d-block.w-100(href=link)!=surah.name
