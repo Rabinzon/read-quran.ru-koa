@@ -11,6 +11,6 @@ export default (router) => {
       model: models.Ayats,
       replacements: { query: q },
     });
-    ctx.render('pages/search', { results: results[0], q });
+    ctx.render('pages/search', { results: results[0], q, title: `Поиск по запросу: ${q}` });
   });
 };
