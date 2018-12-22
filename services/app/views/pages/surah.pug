@@ -1,5 +1,4 @@
 extends /layouts/application.pug
-
 include /mixins/pagination.pug
 
 block content
@@ -9,6 +8,11 @@ block content
         h1(style="word-break: break-all;").mb-0: small=surah.id + '. «' + surah.name + '»'
         small: i хронолоческий порядок суры &nbsp;
           !=surah.chronology
+        - var url = isCanonical ? urlFor('canonical', surah.id) : urlFor('surah', surah.chronology);
+        if translator === 'krachkovsky'
+          p: a(href= url + '/kuliev') Читать суру в переводе Э. Р. Кулиева
+        else
+          p: a(href=url) Читать суру в переводе И. Ю. Крачковского
   .row
     .col-md-8.col-sm-12.m-auto
       each ayat in surah.Ayats || []

@@ -13,6 +13,9 @@ module.exports = {
     order: {
       type: Sequelize.INTEGER,
     },
+    translator: {
+      type: Sequelize.STRING,
+    },
     surah: {
       type: Sequelize.INTEGER,
       onDelete: 'CASCADE',
