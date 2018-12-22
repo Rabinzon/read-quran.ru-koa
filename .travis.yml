@@ -10,8 +10,8 @@ before_install:
 
 jobs:
   include:
-    - stage: test
-      script: make app-test
+    # - stage: test
+    #  script: make app-test
 
     - stage: build docker image
       if: branch = master
