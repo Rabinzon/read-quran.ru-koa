@@ -33,7 +33,7 @@ export default (router) => {
       });
 
       const translatorName = translator === 'krachkovsky' ? 'И. Ю. Крачковского' : 'Э. Р. Кулиева';
-      const pageTitle = `Сура ${surah.id + 1}. ${surah.name}, перевод ${translatorName}`;
+      const pageTitle = `Сура ${surah.id}. ${surah.name}, перевод ${translatorName}`;
 
       ctx.render('pages/surah', {
         surah,
@@ -73,7 +73,7 @@ export default (router) => {
       });
 
       const translatorName = translator === 'krachkovsky' ? 'И. Ю. Крачковского' : 'Э. Р. Кулиева';
-      const pageTitle = `Сура ${surah.id + 1}. ${surah.name}, перевод ${translatorName}`;
+      const pageTitle = `Сура ${surah.id}. ${surah.name}, перевод ${translatorName}`;
 
       ctx.render('pages/surah', {
         surah,

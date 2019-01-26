@@ -5,6 +5,7 @@
         update_cache: yes
         name: "{{ item }}"
       with_items:
+        - psycopg2
         - python3-pip
         - nginx
       become: yes
