@@ -1,3 +1,4 @@
+ansible_python_interpreter: "/usr/bin/env python3"
 read_quran_run_user_home: /home/ubuntu/read-quran
 read_quran_docker_network: read_quran_network
 read_quran_docker_image: "rabinzon/read_quran"

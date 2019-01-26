@@ -1,3 +1,5 @@
+USER = "$(shell id -u):$(shell id -g)"
+
 development-setup-env:
 	ansible-playbook ansible/development.yml -i ansible/development
 
@@ -5,7 +7,7 @@ app: app-down
 	docker-compose up
 
 app-build:
-	docker-compose build
+	docker-compose build --user=$(USER)
 
 app-bash:
 	docker-compose run app bash

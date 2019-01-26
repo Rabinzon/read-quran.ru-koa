@@ -1,4 +1,3 @@
-ansible_python_interpreter: "/usr/bin/env python3"
 read_quran_run_user_home: /home/ubuntu/read-quran
 read_quran_env_file: "{{ read_quran_run_user_home }}/.env"
 read_quran_port: 2023
