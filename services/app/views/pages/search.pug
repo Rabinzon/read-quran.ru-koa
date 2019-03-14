@@ -11,4 +11,4 @@ block content
       each ayat in results || []
         p.my-1
           span.badge.badge-dark=ayat.surah + ':' + ayat.order
-          a.p-1.text-muted.font-normal(href=urlFor('surah', ayat.chronology) + '#' + ayat.order)!=ayat.result
+          a.p-1.text-muted(href=urlFor('surah', ayat.chronology) + '#' + ayat.order)!=ayat.result
