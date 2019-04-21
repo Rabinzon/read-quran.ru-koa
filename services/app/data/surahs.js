@@ -140,7 +140,7 @@ module.exports = [
     chronology: 28,
   },
   {
-    name: 'Раскалывание',
+    name: 'Разверзнется',
     id: 84,
     chronology: 29,
   },
