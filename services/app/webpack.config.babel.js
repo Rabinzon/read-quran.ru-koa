@@ -55,6 +55,7 @@ module.exports = {
       { from: imagesPath, to: path.join(assetsPath, 'images'), toType: 'dir' },
       { from: path.join(__dirname, 'robots.txt'), to: path.join(__dirname, 'public', 'robots.txt') },
       { from: path.join(__dirname, 'sitemap.xml'), to: path.join(__dirname, 'public', 'sitemap.xml') },
+      { from: path.join(__dirname, 'bismillah.png'), to: path.join(__dirname, 'public', 'bismillah.png') },
 
     ]),
   ],
