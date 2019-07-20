@@ -1,4 +1,4 @@
-import { Surah } from '../models';
+import { Ayat, Surah } from '../models';
 
 export default (router) => {
   router
@@ -21,5 +21,23 @@ export default (router) => {
       ctx.session.isNormalOrder = true;
       ctx.state.isNormalOrder = true;
       ctx.render('pages/index', { surahs });
+    })
+    .get('pdf', '/pdf', async (ctx) => {
+      const surahs = await Surah.findAll({
+        include: [{
+          model: Ayat,
+          where: {
+            translator: 'krachkovsky',
+          },
+        }],
+        order: [
+          [Ayat, 'order', 'ASC'],
+          ['chronology', 'ASC'],
+        ],
+      });
+
+      ctx.render('pages/pdf', {
+        surahs,
+      });
     });
 };

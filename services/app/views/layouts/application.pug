@@ -27,6 +27,8 @@ html(lang="en")
           ul.nav
             li.nav-item
               a.nav-link(href='http://free-quran.ru/') Коран в подарок
+            li.nav-item
+              a.nav-link(href=urlFor('pdf')) для печати
 
           .ml-auto.d-flex.align-items-center
             if surah
@@ -55,6 +57,8 @@ html(lang="en")
             ul.nav
               li.nav-item
                 a.nav-link(href='http://free-quran.ru/') Коран в подарок
+              li.nav-item
+                a.nav-link(href=urlFor('pdf')) для печати
             if surah
               .dropdown
                 button.pl-0#dropdownMenuButton.btn.btn-link.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')

@@ -69,3 +69,18 @@ ul.list  {
 .font-normal {
     font-size: 0.9rem;
 }
+
+.main-page-pdf {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pdf-surah-title {
+    margin-top: 40px;
+}
+.pdf-surah-content {
+    margin-bottom: 40px;
+}
