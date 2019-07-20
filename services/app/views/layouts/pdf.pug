@@ -1,0 +1,33 @@
+include /mixins/forms.pug
+
+doctype html
+html(lang="en")
+  head
+    title=title || 'Священный Коран в хронологическом порядке'
+    meta(name='description' content='Сайт для удобного чтения Корана в хронологическом порядке. Доступны переводы И. Ю. Крачковского, Э. Р. Кулиева.')
+    meta(name='keywords' content='Коран, читать коран, коран хронологический порядок, читать коран онлайн, коран на русском, коран чтение')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='apple-touch-icon', sizes='180x180', href='/assets/favicon/apple-touch-icon.png?v=wAXXEkEEYG')
+    link(rel='icon', type='image/png', sizes='32x32', href='/assets/favicon/favicon-32x32.png?v=wAXXEkEEYG')
+    link(rel='icon', type='image/png', sizes='16x16', href='/assets/favicon/favicon-16x16.png?v=wAXXEkEEYG')
+    link(rel='manifest', href='/assets/favicon/site.webmanifest?v=wAXXEkEEYG')
+    link(rel='mask-icon', href='/assets/favicon/safari-pinned-tab.svg?v=wAXXEkEEYG', color='#5bbad5')
+    link(rel='shortcut icon', href='/assets/favicon/favicon.ico?v=wAXXEkEEYG')
+    meta(name='msapplication-TileColor', content='#da532c')
+    meta(name='msapplication-config', content='/assets/favicon/browserconfig.xml?v=wAXXEkEEYG')
+    meta(name='theme-color', content='#ffffff')
+    script(src='/assets/main.js')
+
+  body.d-flex.flex-column.justify-content-between
+    main.container
+      - const { msg, level = 'info' } = flash.get() || error || {}
+      if msg
+        .alert.mt-3(class='alert-' + level)= msg
+      .col-md-10.m-auto.main-page-pdf
+        h1.text-center Коран в хронологическом порядке
+        br
+        p.text-lead.text-center Перевод: И. Ю. Крачковский
+        br
+        img.w-75(src="http://www.pngonly.com/wp-content/uploads/2017/05/Bismillah-PNG-Transparent.png")
+      block content
+
