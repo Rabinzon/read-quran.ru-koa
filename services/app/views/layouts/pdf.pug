@@ -18,7 +18,7 @@ html(lang="en")
     meta(name='theme-color', content='#ffffff')
     script(src='/assets/main.js')
 
-  body.d-flex.flex-column.justify-content-between
+  body.pdf.d-flex.flex-column.justify-content-between
     main.container
       - const { msg, level = 'info' } = flash.get() || error || {}
       if msg

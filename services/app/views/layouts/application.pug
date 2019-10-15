@@ -27,8 +27,6 @@ html(lang="en")
           ul.nav
             li.nav-item
               a.nav-link(href='http://free-quran.ru/') Коран в подарок
-            li.nav-item
-              a.nav-link(href=urlFor('pdf')) для печати
 
           .ml-auto.d-flex.align-items-center
             if surah
@@ -57,8 +55,7 @@ html(lang="en")
             ul.nav
               li.nav-item
                 a.nav-link(href='http://free-quran.ru/') Коран в подарок
-              li.nav-item
-                a.nav-link(href=urlFor('pdf')) для печати
+
             if surah
               .dropdown
                 button.pl-0#dropdownMenuButton.btn.btn-link.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
@@ -83,8 +80,11 @@ html(lang="en")
       .d-flex.align-items-center.justify-content-between
         .text-left
           span.text-muted
-            small 2017-2018 &nbsp;
+            small 2017-2019 &nbsp;
             a(href='/')
               small Коран в хронологическом порядке
-        a(href='http://free-quran.ru/')
-          small Бесплатный Коран
+        .text-right
+          a.pr-4(href='http://free-quran.ru/')
+            small Бесплатный Коран
+          a(href=urlFor('pdf'))
+            small Для печати
