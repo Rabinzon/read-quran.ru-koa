@@ -5,7 +5,7 @@ block content
   .row.justify-content-md-center
     .col-md-8.col-sm-12
       .my-3
-        h1(style="word-break: break-all;").mb-0: small=surah.id + '. «' + surah.name + '»'
+        h1(style="word-break: break-all;").mb-0: small= 'Сура ' + surah.id + ' «' + surah.name + '»'
         small: i хронолоческий порядок суры &nbsp;
           !=surah.chronology
         - var url = isCanonical ? urlFor('canonical', surah.id) : urlFor('surah', surah.chronology);
