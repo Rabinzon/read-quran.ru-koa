@@ -5,13 +5,10 @@ block content
     .row.justify-content-md-center.pdf-surah-title
       .col-md-10.col-sm-12
         .my-3
-          h1(style="word-break: break-all;").mb-0: small=surah.id + '. «' + surah.name + '»'
-          small: i хронолоческий порядок суры &nbsp;
-            !=surah.chronology
+          h3(style="word-break: break-all;").mb-0: strong= 'Cyра ' + surah.chronology + ' «' + surah.name + '»'
           - var url = isCanonical ? urlFor('canonical', surah.id) : urlFor('surah', surah.chronology);
     .row.pdf-surah-content
       .col-md-10.col-sm-12.m-auto
         each ayat in surah.Ayats || []
           .ayat.d-flex
             .p-1(id=ayat.order)!=ayat.surah + ':' + ayat.order + ' ' + ayat.text
-
